@@ -1,174 +1,227 @@
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    min-height: 100vh;
 }
 
 body {
-    margin: 0;
-    min-height: 100vh;
+    font-family: "Netflix Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #ffffff;
+    background-color: #000000;
+    background-image: linear-gradient(
+        180deg,
+        #3a0e12 0%,
+        #230709 22%,
+        #120304 45%,
+        #050101 70%,
+        #000000 100%
+    );
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     display: flex;
     flex-direction: column;
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #101010;
-    color: #fff;
 }
 
-.demo {
-    height: 7.6vh;
-    min-height: 36px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px;
-    color: #aaa;
-}
-
-.page {
-    flex: 1;
-    background: radial-gradient(ellipse at 50% 0%, #421617 0%, transparent 80%),
-                linear-gradient(to bottom, #310e0f, #160505 54%, #030000 100%);
-}
-
+/* Header */
 .header {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .header-inner {
-    width: 62%;
-    max-width: 1184px;
-    height: clamp(72px, 4.8vw, 92px);
-    margin: auto;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 24px 32px;
     display: flex;
     align-items: center;
 }
 
 .logo {
-    display: inline-block;
-    font-family: Impact, 'Arial Narrow', Arial, sans-serif;
-    font-size: clamp(38px, 2.8vw, 54px);
-    font-weight: bold;
-    letter-spacing: 1px;
-    color: #e50914;
-    transform: scaleX(0.88);
-    transform-origin: left;
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
 }
 
-.login {
-    width: 23.3%;
-    min-width: 350px;
-    max-width: 446px;
-    margin: 0 auto;
-    padding-top: clamp(28px, 1.8vw, 36px);
-    padding-bottom: 40px;
+.netflix-logo-svg {
+    height: 36px;
+    width: auto;
+    display: block;
 }
 
-h1 {
-    margin: 0;
-    font-size: clamp(28px, 1.7vw, 34px);
-    line-height: 1.2;
+/* Main Content */
+.main-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 20px 80px;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 440px;
+}
+
+.login-container h1 {
+    font-size: 2rem;
     font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
 }
 
 .subtitle {
-    margin: 10px 0 24px;
-    color: #bcb5b5;
-    font-size: clamp(16px, 1vw, 19px);
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.78);
+    margin-bottom: 24px;
+    line-height: 1.4;
 }
 
-.fields {
+/* Form */
+.login-form {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 16px;
 }
 
-.fields input {
+.input-group {
+    position: relative;
+}
+
+.input-group input {
     width: 100%;
-    height: clamp(50px, 3vw, 57px);
-    padding: 0 15px;
-    border: 1px solid #655b5b;
+    height: 56px;
+    padding: 22px 16px 6px;
+    background-color: rgba(22, 22, 22, 0.65);
+    border: 1px solid rgba(155, 155, 155, 0.55);
     border-radius: 4px;
-    background: #1c1515;
-    font: inherit;
-    color: #ddd;
-    opacity: 1;
+    color: #ffffff;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
 }
 
-.fields input::placeholder {
-    color: #bdb9b9;
-    opacity: 1;
+.input-group input:focus {
+    border-color: #ffffff;
+    background-color: rgba(30, 30, 30, 0.8);
 }
 
-.fields button {
-    height: clamp(44px, 2.6vw, 50px);
+.input-group label {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 0.95rem;
+    pointer-events: none;
+    transition: all 0.15s ease;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: calc(100% - 32px);
+}
+
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label {
+    top: 14px;
+    font-size: 0.72rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.btn-primary {
+    width: 100%;
+    height: 48px;
     background-color: #e50914;
-    color: white;
+    color: #ffffff;
     border: none;
     border-radius: 4px;
-    font-size: clamp(16px, 1vw, 19px);
-    font-weight: bold;
-    opacity: 1;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
 }
 
-.help {
-    margin-top: 46px;
-    font-size: 15px;
+.btn-primary:hover {
+    background-color: #c11119;
 }
 
-.help summary {
+/* Help Dropdown */
+.help-dropdown {
+    margin-top: 32px;
+}
+
+.help-summary {
+    list-style: none;
     display: inline-flex;
     align-items: center;
     gap: 8px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #ffffff;
     cursor: pointer;
-    list-style: none;
+    user-select: none;
 }
 
-.help summary::-webkit-details-marker {
+.help-summary::-webkit-details-marker {
     display: none;
 }
 
-.help summary::after {
-    content: '';
-    width: 8px;
-    height: 8px;
-    border-right: 1px solid white;
-    border-bottom: 1px solid white;
-    transform: rotate(45deg) translateY(-2px);
+.help-summary:hover span {
+    text-decoration: underline;
 }
 
-.help[open] summary::after {
-    transform: rotate(225deg);
+.chevron {
+    transition: transform 0.2s ease;
 }
 
-.help p {
-    color: #bbb;
-    line-height: 1.4;
+.help-dropdown[open] .chevron {
+    transform: rotate(180deg);
 }
 
-.captcha {
-    margin: 36px 0 0;
-    font-size: 13px;
-    color: #858080;
-    line-height: 1.4;
+.help-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 14px;
 }
 
-footer {
-    min-height: 7vh;
+.help-content a {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.9rem;
+    text-decoration: underline;
 }
 
+.help-content a:hover {
+    color: #ffffff;
+}
+
+/* reCAPTCHA Note */
+.recaptcha-note {
+    margin-top: 24px;
+    font-size: 0.8rem;
+    line-height: 1.45;
+    color: rgba(255, 255, 255, 0.55);
+}
+
+/* Responsive */
 @media (max-width: 600px) {
     .header-inner {
-        width: calc(100% - 48px);
+        padding: 18px 20px;
     }
 
-    .login {
-        width: calc(100% - 48px);
-        min-width: 0;
+    .netflix-logo-svg {
+        height: 28px;
     }
 
-    h1 {
-        font-size: 26px;
+    .main-content {
+        padding: 28px 20px 48px;
     }
 
-    .help {
-        margin-top: 32px;
+    .login-container h1 {
+        font-size: 1.65rem;
     }
 }
