@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix — учебный макет</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="page">
+        <header class="header">
+            <div class="header-inner">
+                <span class="logo">NETFLIX</span>
+            </div>
+        </header>
+        <main class="login">
+            <h1>Введите свои данные<br>для входа</h1>
+            <p class="subtitle">Или зарегистрируйте новый аккаунт.</p>
+            <div class="fields">
+                <input type="text" aria-label="Адрес эл. почты или номер телефона"
+                    placeholder="Адрес эл. почты или номер телефона" disabled>
+                <button type="button" disabled>Продолжить</button>
+            </div>
+            <details class="help">
+                <summary>Получить помощь</summary>
+                <p>Это учебная демонстрация. Для входа в аккаунт используйте официальный сайт Netflix.</p>
+            </details>
+            <p class="captcha">Эта страница защищена Google reCAPTCHA, чтобы мы знали, что вы не бот.</p>
+        </main>
+    </div>
+    <footer aria-hidden="true"></footer>
+</body>
+</html>
